@@ -1,5 +1,6 @@
 package com.hfad.douyintest
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -7,7 +8,12 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.hfad.douyintest.databinding.ActivityMainBinding
+import com.hfad.douyintest.fragments.FriendsFragment
+import com.hfad.douyintest.fragments.HomeFragment
+import com.hfad.douyintest.fragments.MeFragment
+import com.hfad.douyintest.fragments.MessagesFragment
 
 class MainActivityKt : AppCompatActivity(), View.OnClickListener {
 
@@ -26,6 +32,8 @@ class MainActivityKt : AppCompatActivity(), View.OnClickListener {
     private lateinit var curItem: TextView   //当前点击项文本框对象
     private lateinit var lastItem: TextView  //前点击项文本框对象
 
+    private lateinit var currentFragment: Fragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -42,9 +50,9 @@ class MainActivityKt : AppCompatActivity(), View.OnClickListener {
         itemMe = mainBinding.itemFive
         tvFour = mainBinding.tvFour
 
-
         curItem = tvOne
         lastItem = tvOne
+        currentFragment = HomeFragment()
 
         //统一设置点击监听器
         itemHome.setOnClickListener(this)
@@ -54,12 +62,14 @@ class MainActivityKt : AppCompatActivity(), View.OnClickListener {
         itemMe.setOnClickListener(this)
 
         //起始页面初始化
+        switchToFragment(HomeFragment())
         tvOne.textSize = 20F
         tvOne.setTextColor(resources.getColor(R.color.white))
 
     }
 
     //底部导航点击项分类处理
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.item_one -> {
@@ -67,12 +77,14 @@ class MainActivityKt : AppCompatActivity(), View.OnClickListener {
                 curItem = tvOne
                 llBottom.background = resources.getDrawable(R.color.black, null)
                 switchTextView(lastItem, curItem)
+                switchToFragment(HomeFragment())
             }
             R.id.item_two -> {
                 lastItem = curItem
                 curItem = tvTwo
                 llBottom.background = resources.getDrawable(R.color.black, null)
                 switchTextView(lastItem, curItem)
+                switchToFragment(FriendsFragment())
             }
             R.id.item_three -> {
 
@@ -82,36 +94,50 @@ class MainActivityKt : AppCompatActivity(), View.OnClickListener {
                 curItem = tvThree
                 llBottom.background = resources.getDrawable(R.color.white, null)
                 switchTextView(lastItem, curItem)
+                switchToFragment(MessagesFragment())
             }
             R.id.item_five -> {
                 lastItem = curItem
                 curItem = tvFour
                 llBottom.background = resources.getDrawable(R.color.white, null)
                 switchTextView(lastItem, curItem)
+                switchToFragment(MeFragment())
             }
         }
     }
 
     //相邻点击项的文本格式切换（当前突出、原项默认）
     private fun switchTextView(textView1: TextView, textView2: TextView) {
-        textView1?.textSize = 17F
-        textView1?.setTextColor(resources.getColor(android.R.color.darker_gray))
+        textView1.textSize = 17F
+        textView1.setTextColor(resources.getColor(android.R.color.darker_gray))
 
         //当前项文本突出显示格式
-        textView2?.textSize = 20F
+        textView2.textSize = 20F
         if (textView2 == tvThree || textView2 == tvFour) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                textView2?.setTextColor(resources.getColor(R.color.black, null))
+                textView2.setTextColor(resources.getColor(R.color.black, null))
             } else {
-                textView2?.setTextColor(resources.getColor(R.color.black))
+                textView2.setTextColor(resources.getColor(R.color.black))
             }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                textView2?.setTextColor(resources.getColor(R.color.white, null))
+                textView2.setTextColor(resources.getColor(R.color.white, null))
             } else {
-                textView2?.setTextColor(resources.getColor(R.color.white))
+                textView2.setTextColor(resources.getColor(R.color.white))
             }
         }
+    }
+
+    private fun switchToFragment(targetFragment: Fragment) {
+        val beginTransaction = supportFragmentManager.beginTransaction()
+        if (!targetFragment.isAdded) {
+            beginTransaction.hide(currentFragment)
+            beginTransaction.add(R.id.container_fragments, targetFragment, "targetFragment")
+        } else {
+            beginTransaction.hide(currentFragment).show(targetFragment)
+        }
+        currentFragment = targetFragment
+        beginTransaction.commitAllowingStateLoss()
     }
 
 

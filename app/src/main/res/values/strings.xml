@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DouyinTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_fragment">HomeFragment</string>
+    <string name="friendse_fragment">FriendsFragment</string>
+    <string name="Messages_fragment">MessageseFragment</string>
+    <string name="me_fragment">MeFragment</string>
 </resources>

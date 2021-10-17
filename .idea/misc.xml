@@ -3,11 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/tab_right_badge.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/custom_view_textview.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_attention.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/fragment_friends.xml" value="0.2520852641334569" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3026041666666667" />
+        <entry key="app/src/main/res/layout/fragment_home_main.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/fragment_local.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/fragment_me.xml" value="0.2520852641334569" />
         <entry key="app/src/main/res/layout/fragment_messages.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/fragment_recommand.xml" value="0.27708333333333335" />
+        <entry key="app/src/main/res/layout/fragment_user_center.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>

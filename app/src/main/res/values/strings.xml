@@ -6,4 +6,12 @@
     <string name="friendse_fragment">FriendsFragment</string>
     <string name="Messages_fragment">MessageseFragment</string>
     <string name="me_fragment">MeFragment</string>
+    <string name="user_center_fragment">UserCenterFragment</string>
+    <string name="hoem_main_fragment">HomeMainFragment</string>
+    <string name="live_brodcast">直播</string>
+    <string name="fragment_local">LocalFragment</string>
+    <string name="attention_fragment">AttentionFragment</string>
+    <string name="recommand_fragment">RecommandFragment</string>
+    <string name="recommand">推荐</string>
+    <string name="tv_num">12</string>
 </resources>

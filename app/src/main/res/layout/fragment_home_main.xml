@@ -4,14 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
     tools:context=".home.fragments.HomeMainFragment">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp2_home_main"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_home_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal" />
+        android:layout_height="match_parent" />
 
     <RelativeLayout
         android:id="@+id/ll_top_homemain"
@@ -37,11 +35,11 @@
             android:layout_centerInParent="true"
             android:paddingTop="10dp"
             android:paddingBottom="6dp"
-            app:tabPaddingBottom="4dp"
+            app:tabPaddingBottom="2dp"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorColor="@color/white"
             app:tabIndicatorHeight="2dp"
-
+            app:tabGravity="fill"
             app:tabMode="fixed"/>
 
         <ImageButton

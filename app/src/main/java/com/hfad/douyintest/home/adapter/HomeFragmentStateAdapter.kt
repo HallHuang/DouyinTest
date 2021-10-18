@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.hfad.douyintest.home.fragments.HomeMainFragment
 
-class HomeFragmentStateAdapter(fragmentActivity: HomeMainFragment, val fragments: List<Fragment>) : FragmentStateAdapter(fragmentActivity) {
+class HomeFragmentStateAdapter(fragmentActivity: HomeMainFragment, private val fragments: List<Fragment>) : FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int {
         return fragments.size
     }

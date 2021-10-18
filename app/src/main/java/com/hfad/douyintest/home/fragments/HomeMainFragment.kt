@@ -1,5 +1,6 @@
 package com.hfad.douyintest.home.fragments
 
+import android.graphics.Typeface
 import android.graphics.Typeface.*
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.TypefaceCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
@@ -26,7 +28,7 @@ import com.hfad.douyintest.home.adapter.HomeFragmentStateAdapter
 class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
 
     private lateinit var fragmentHomeMainBinding: FragmentHomeMainBinding
-    private lateinit var vpHomeMain: ViewPager
+    private lateinit var vpHomeMain: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var ibSearch: ImageButton
 
@@ -55,33 +57,20 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
         super.onViewCreated(view, savedInstanceState)
 
         vpHomeMain.offscreenPageLimit = fragments.size
-        vpHomeMain.adapter = HomeFragmentAdapter(childFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragments)
-        tabLayout.setupWithViewPager(vpHomeMain)
-        for (i in 0 ..2) {
-            val customView = View.inflate(tabLayout.context, R.layout.custom_view_textview, null)
-            val tab = tabLayout.getTabAt(i)
-            val textView = customView.findViewById<TextView>(R.id.tv_custom)
-            textView.text = tabTitles[i]
-            textView.textSize = 18F
-            textView.typeface = DEFAULT
-            textView.setTextColor(ContextCompat.getColor(tabLayout.context, R.color.text_gray))
-            tab?.customView = customView
-        }
+        vpHomeMain.adapter = HomeFragmentStateAdapter(this, fragments)
 
         tabLayout.addOnTabSelectedListener(this)
 
-
-        //Viewpager2+tablayout
-//        TabLayoutMediator(tabLayout, vpHomeMain, TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-//            val customView = View.inflate(tabLayout.context, R.layout.custom_view_textview, null)
-//            val textView = customView.findViewById<TextView>(R.id.tv_custom)
-//            textView.text = tabTitles[position]
-//            textView.textSize = 17F
-//            textView.typeface = DEFAULT
-//            textView.setTextColor(resources.getColor(R.color.text_gray))
-//            tab.customView = null
-//            tab.customView = customView
-//        }).attach()
+        TabLayoutMediator(tabLayout, vpHomeMain, TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+            val customView = View.inflate(tabLayout.context, R.layout.custom_view_textview, null)
+            val textView = customView.findViewById<TextView>(R.id.tv_custom)
+            textView.text = tabTitles[position]
+            textView.textSize = 17F
+            textView.typeface = DEFAULT
+            textView.setTextColor(resources.getColor(R.color.text_gray))
+            tab.customView = null
+            tab.customView = customView
+        }).attach()
 
         tabLayout.getTabAt(2)?.select()
 
@@ -111,10 +100,10 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
         val textView = tab.customView?.findViewById<TextView>(R.id.tv_custom)
         if (textView != null) {
             if (isSelected) {
-                textView.typeface = DEFAULT_BOLD
+                textView.paint.isFakeBoldText = true
                 textView.setTextColor(ContextCompat.getColor(tabLayout.context, R.color.white))
             } else {
-                textView.typeface = DEFAULT
+                textView.paint.isFakeBoldText = false
                 textView.setTextColor(ContextCompat.getColor(tabLayout.context, R.color.text_gray))
             }
         }

@@ -96,11 +96,12 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
         //
     }
 
+    //tabview视图格式切换
     private fun setTabView(tab : TabLayout.Tab, isSelected : Boolean) {
         val textView = tab.customView?.findViewById<TextView>(R.id.tv_custom)
         if (textView != null) {
             if (isSelected) {
-                textView.paint.isFakeBoldText = true
+                textView.paint.isFakeBoldText = true    //字体加粗，不能使用会引起指示条抖动的typeface
                 textView.setTextColor(ContextCompat.getColor(tabLayout.context, R.color.white))
             } else {
                 textView.paint.isFakeBoldText = false

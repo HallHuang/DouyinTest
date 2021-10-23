@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
-import com.hfad.douyintest.R
 import com.hfad.douyintest.databinding.FragmentHomeBinding
 import com.hfad.douyintest.home.HomeViewModel
 import com.hfad.douyintest.home.adapter.HomeFragmentAdapter
@@ -42,11 +42,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel = ViewModelProviders.of(activity!!).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(activity!!).get(HomeViewModel::class.java)
 
         vpHome.adapter = HomeFragmentAdapter(childFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragments)
 
-        homeViewModel.isBackToHome.observe(this, Observer {
+        homeViewModel.isBackToHome.observe(viewLifecycleOwner, {
             if (it) vpHome.currentItem = 0
         })
 

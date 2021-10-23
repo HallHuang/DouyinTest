@@ -18,6 +18,7 @@
             android:background="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+            <!--android:visibility="invisible": 保证上滑过快时标题栏会顶部显示占位-->
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_user"
                 android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                 app:layout_collapseMode="pin"
                 app:contentInsetStart="0dp"
                 app:contentInsetEnd="0dp"
-                android:visibility="gone"
+                android:visibility="invisible"
                 android:fitsSystemWindows="true">
 
                 <RelativeLayout

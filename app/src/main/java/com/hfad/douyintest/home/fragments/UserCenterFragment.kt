@@ -9,10 +9,8 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
@@ -20,6 +18,7 @@ import com.hfad.douyintest.R
 import com.hfad.douyintest.databinding.FragmentUserCenterBinding
 import com.hfad.douyintest.home.HomeViewModel
 import com.hfad.douyintest.home.adapter.CommonFragmentAdapter
+import kotlin.math.abs
 
 class UserCenterFragment : Fragment(), AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
 
@@ -41,12 +40,12 @@ class UserCenterFragment : Fragment(), AppBarLayout.OnOffsetChangedListener, Vie
         }
     }
 
-    private val titles = arrayListOf<String>("作品", "喜欢")
+    private val titles = arrayListOf("作品", "喜欢")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = FragmentUserCenterBinding.inflate(inflater, container, false)
         vpUserVideos = binding.vpUserVideos
         tabLayout = binding.tabLayoutVideos
@@ -61,7 +60,7 @@ class UserCenterFragment : Fragment(), AppBarLayout.OnOffsetChangedListener, Vie
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel = ViewModelProviders.of(activity!!).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(activity!!).get(HomeViewModel::class.java)
         vpUserVideos.adapter = CommonFragmentAdapter(childFragmentManager,
             FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, userFragments, titles)
 
@@ -84,12 +83,15 @@ class UserCenterFragment : Fragment(), AppBarLayout.OnOffsetChangedListener, Vie
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        val percent = Math.abs(verticalOffset * 1.0f) / appBarLayout!!.totalScrollRange
+        val percent = abs(verticalOffset * 1.0f) / appBarLayout!!.totalScrollRange
         if (percent > 0.5) {
             toolBar.visibility = View.VISIBLE
-            header.alpha = (percent- 0.8f)* (-10.0f/3)
+            if (percent > 0.8){
+                header.alpha = 0.0f
+            }
         } else {
             toolBar.visibility = View.GONE
+            header.alpha = 1.0f
         }
     }
 

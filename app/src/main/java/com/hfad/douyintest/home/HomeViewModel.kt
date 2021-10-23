@@ -11,6 +11,9 @@ class HomeViewModel: ViewModel() {
         }
     }
 
-
-
+    val curPage by lazy {
+        MutableLiveData<Int>().apply {
+            this.value = 0
+        }
+    }
 }

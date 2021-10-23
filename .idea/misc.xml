@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/arrow_back.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/drawable/attention_button_bg.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_black.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/drawable/indicator_width_self_define.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/drawable/more_horiz_24.xml" value="0.2814814814814815" />
+        <entry key="app/src/main/res/drawable/round_circleimage_bg.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/drawable/shape_circle_halfwhite.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/drawable/shape_round_halfwhite.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/drawable/shape_round_red.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/drawable/tab_right_badge.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/custom_view_textview.xml" value="0.375" />
@@ -16,8 +24,12 @@
         <entry key="app/src/main/res/layout/fragment_messages.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/fragment_recommand.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/fragment_user_center.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_user_likes.xml" value="0.27282051282051284" />
+        <entry key="app/src/main/res/layout/fragment_user_works.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/item_view_image.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/item_view_local_video.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/ll_attemtion_button.xml" value="0.27282051282051284" />
+        <entry key="app/src/main/res/layout/user_layout_header.xml" value="0.27708333333333335" />
       </map>
     </option>
   </component>

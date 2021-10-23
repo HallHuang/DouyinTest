@@ -17,4 +17,8 @@
     <style name="TabTextStyle" parent="TextAppearance.AppCompat.Headline">
         <item name="android:textSize">17sp</item>
     </style>
+
+    <style name="TabTextStyleVideo" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

@@ -14,6 +14,8 @@
         <entry key="app/src/main/res/drawable/shape_round_red.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/drawable/tab_right_badge.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.27708333333333335" />
+        <entry key="app/src/main/res/layout/activity_video_play.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/custom_view_textview.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_attention.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/fragment_friends.xml" value="0.2520852641334569" />
@@ -26,10 +28,12 @@
         <entry key="app/src/main/res/layout/fragment_user_center.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_user_likes.xml" value="0.27282051282051284" />
         <entry key="app/src/main/res/layout/fragment_user_works.xml" value="0.27708333333333335" />
+        <entry key="app/src/main/res/layout/item_tiktok_view.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/item_view_image.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/item_view_local_video.xml" value="0.375" />
         <entry key="app/src/main/res/layout/ll_attemtion_button.xml" value="0.27282051282051284" />
         <entry key="app/src/main/res/layout/user_layout_header.xml" value="0.27708333333333335" />
+        <entry key="app/src/main/res/layout/view_interact.xml" value="0.27708333333333335" />
       </map>
     </option>
   </component>

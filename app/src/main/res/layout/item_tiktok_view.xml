@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl_container"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_cover_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <com.hfad.douyintest.home.view.PauseAndLikeView
+        android:id="@+id/view_pause_like"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.hfad.douyintest.home.view.InteractView
+        android:id="@+id/view_interact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+    <ImageView
+        android:id="@+id/iv_play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@mipmap/ic_play"
+        android:alpha="0.5"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

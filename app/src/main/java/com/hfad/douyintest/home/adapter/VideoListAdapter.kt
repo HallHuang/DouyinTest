@@ -9,9 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hfad.douyintest.R
+import com.hfad.douyintest.databinding.ItemViewLocalVideoBinding
 import com.hfad.douyintest.home.beans.VideoBean
 
 class VideoListAdapter(val mContext: Context, val mDatas: ArrayList<VideoBean> ): RecyclerView.Adapter<VideoListAdapter.ItemVideoViewHolder>() {
+
+    private lateinit var onVideoItemClickListener: OnVideoItemClickListener
 
     class ItemVideoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -22,11 +25,12 @@ class VideoListAdapter(val mContext: Context, val mDatas: ArrayList<VideoBean> )
         var tvContent: TextView
 
         init {
-            ivCover = itemView.findViewById(R.id.iv_cover) as ImageView
-            ivHead = itemView.findViewById(R.id.iv_head) as ImageView
-            tvIcon = itemView.findViewById(R.id.icon_location) as TextView
-            tvDistance = itemView.findViewById(R.id.tv_distance) as TextView
-            tvContent = itemView.findViewById(R.id.tv_content) as TextView
+            val binding = ItemViewLocalVideoBinding.bind(itemView)
+            ivCover = binding.ivCover
+            ivHead = binding.ivHead
+            tvIcon = binding.iconLocation
+            tvDistance = binding.tvDistance
+            tvContent = binding.tvContent
         }
 
     }
@@ -42,19 +46,26 @@ class VideoListAdapter(val mContext: Context, val mDatas: ArrayList<VideoBean> )
     override fun onBindViewHolder(holder: ItemVideoViewHolder, position: Int) {
         val videoBean = mDatas[position]
         holder.ivCover.setImageResource(videoBean.coverRes)
-        holder.tvIcon.typeface = Typeface.createFromAsset(mContext.assets, "iconfont.ttf")
-        holder.tvIcon.setText(R.string.icon_location_fill)
         holder.tvDistance.setText(""+videoBean.distance + "km")
         holder.ivHead.setImageResource(videoBean.userBean.head)
         holder.tvContent.setText(videoBean.content)
 
+        holder.itemView.setOnClickListener {
+            onVideoItemClickListener.OnVideoItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
         return mDatas.size
     }
 
+    fun setOnVideoItemClickListener(onVideoItemClickListener: OnVideoItemClickListener){
+        this.onVideoItemClickListener = onVideoItemClickListener
+    }
 
+    interface OnVideoItemClickListener{
+        fun OnVideoItemClick(position: Int)
+    }
 }
 
 

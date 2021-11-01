@@ -46,8 +46,9 @@ class HomeFragment : Fragment() {
 
         vpHome.adapter = HomeFragmentAdapter(childFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragments)
 
+        //用户界面/视频主界面 切换
         homeViewModel.isBackToHome.observe(viewLifecycleOwner, {
-            if (it) vpHome.currentItem = 0
+            if (it) vpHome.currentItem = 0 else vpHome.currentItem = 1
         })
 
     }

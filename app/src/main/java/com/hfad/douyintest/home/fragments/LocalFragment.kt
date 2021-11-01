@@ -1,6 +1,7 @@
 package com.hfad.douyintest.home.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.hfad.douyintest.activities.VideoPlayActivity
 import com.hfad.douyintest.databinding.FragmentLocalBinding
 import com.hfad.douyintest.home.adapter.VideoListAdapter
 import com.hfad.douyintest.home.beans.DataCreate
@@ -47,7 +49,16 @@ class LocalFragment : Fragment() {
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         rvLocal.layoutManager = staggeredGridLayoutManager
-        rvLocal.adapter = VideoListAdapter(mContext, DataCreate.datas)
+        val videoListAdapter = VideoListAdapter(mContext, DataCreate.datas)
+        rvLocal.adapter = videoListAdapter
+        videoListAdapter.setOnVideoItemClickListener(object: VideoListAdapter.OnVideoItemClickListener{
+            override fun OnVideoItemClick(position: Int) {
+                VideoPlayActivity.posPlay = position
+                val intent = Intent(mContext, VideoPlayActivity::class.java)
+                mContext.startActivity(intent)
+            }
+
+        })
     }
 
 

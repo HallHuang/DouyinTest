@@ -45,7 +45,7 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         fragmentHomeMainBinding = FragmentHomeMainBinding.inflate(inflater, container, false)
         vpHomeMain = fragmentHomeMainBinding.vpHomeMain
         tabLayout = fragmentHomeMainBinding.tabltHomeMain
@@ -61,16 +61,16 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
 
         tabLayout.addOnTabSelectedListener(this)
 
-        TabLayoutMediator(tabLayout, vpHomeMain, TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+        TabLayoutMediator(tabLayout, vpHomeMain) { tab, position ->
             val customView = View.inflate(tabLayout.context, R.layout.custom_view_textview, null)
             val textView = customView.findViewById<TextView>(R.id.tv_custom)
             textView.text = tabTitles[position]
             textView.textSize = 17F
             textView.typeface = DEFAULT
-            textView.setTextColor(resources.getColor(R.color.text_gray))
+            textView.setTextColor(ContextCompat.getColor(tabLayout.context, R.color.text_gray))
             tab.customView = null
             tab.customView = customView
-        }).attach()
+        }.attach()
 
         tabLayout.getTabAt(2)?.select()
 

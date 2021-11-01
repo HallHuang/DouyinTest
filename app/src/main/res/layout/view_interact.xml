@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginRight="120dp">
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" @今日足球"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+
+        <com.hfad.douyintest.home.view.TextClickView
+            android:id="@+id/tcv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            android:text="2018世界杯法国夺冠 #俄罗斯世界杯 @妞妞 https://www.baidu.com"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp" />
+
+        <com.hfad.douyintest.home.view.MarqueeTextView
+            android:id="@+id/mtv_subcontent"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="法国 4：2 克罗地亚，法国时隔20年再举大力神杯"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="52dp"
+            android:layout_height="62dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_head"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/header_soccer"/>
+
+            <ImageView
+                android:id="@+id/iv_focus"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:padding="3dp"
+                android:src="@mipmap/add_focus"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.hfad.douyintest.home.view.IconTextView
+                android:id="@+id/iv_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:text="@string/icon_like_fill" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_anim"
+                android:layout_width="85dp"
+                android:layout_height="85dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_likescount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="66.8w"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="-22dp"/>
+
+        <com.hfad.douyintest.home.view.IconTextView
+            android:id="@+id/iv_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:text="@string/icon_comment"/>
+
+        <TextView
+            android:id="@+id/tv_commentscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="4321"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            android:textColor="@color/white"/>
+
+        <com.hfad.douyintest.home.view.IconTextView
+            android:id="@+id/iv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="12dp"
+            android:text="@string/icon_more"/>
+
+        <TextView
+            android:id="@+id/tv_sharescount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1234"
+            android:textSize="12sp"
+            android:layout_marginTop="-5dp"
+            android:textColor="@color/white"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="15dp">
+
+            <ImageView
+                android:id="@+id/iv_record"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:background="@mipmap/ic_record" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_head_anim"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

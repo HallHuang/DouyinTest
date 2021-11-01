@@ -15,7 +15,7 @@
         android:src="@drawable/ic_main_menu"
         android:scaleType="centerCrop" />
 
-    <TextView
+    <com.hfad.douyintest.home.view.IconTextView
         android:id="@+id/icon_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

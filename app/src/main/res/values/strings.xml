@@ -37,4 +37,5 @@
     <string name="user_likes_fragment">UserLikesFragment</string>
     <string name="user_test">忠实用户A-Bill</string>
     <string name="attention">关注</string>
+    <string name="search_hint">SearchActivity</string>
 </resources>

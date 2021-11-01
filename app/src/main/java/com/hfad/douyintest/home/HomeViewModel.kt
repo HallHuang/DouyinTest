@@ -2,18 +2,19 @@ package com.hfad.douyintest.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.hfad.douyintest.home.beans.DataCreate
+import com.hfad.douyintest.home.beans.VideoBean
 
 class HomeViewModel: ViewModel() {
 
     val isBackToHome by lazy {
         MutableLiveData<Boolean>().apply {
-            this.value = false
+            this.value = true
         }
     }
 
-    val curPage by lazy {
-        MutableLiveData<Int>().apply {
-            this.value = 0
-        }
+    val curUserBeanData by lazy {
+        MutableLiveData<VideoBean.UserBean>()
     }
+
 }

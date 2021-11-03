@@ -16,6 +16,9 @@ import com.hfad.douyintest.home.adapter.HomeFragmentAdapter
 import com.hfad.douyintest.home.fragments.HomeMainFragment
 import com.hfad.douyintest.home.fragments.UserCenterFragment
 
+/**
+ * 包含用户信息界面和视频主界面两个Fragment的ViewPager,设置观察变量进行界面间进入/返回
+ */
 class HomeFragment : Fragment() {
 
     private lateinit var fragmentHomeBinding : FragmentHomeBinding
@@ -33,7 +36,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         fragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         vpHome = fragmentHomeBinding.vpHomeFragment
         return fragmentHomeBinding.root
@@ -45,8 +48,9 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProvider(activity!!).get(HomeViewModel::class.java)
 
         vpHome.adapter = HomeFragmentAdapter(childFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragments)
+        vpHome.currentItem = 0
 
-        //用户界面/视频主界面 切换
+        //返回键：用户信息界面/视频主界面 切换
         homeViewModel.isBackToHome.observe(viewLifecycleOwner, {
             if (it) vpHome.currentItem = 0 else vpHome.currentItem = 1
         })

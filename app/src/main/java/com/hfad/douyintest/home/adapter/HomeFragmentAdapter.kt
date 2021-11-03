@@ -6,11 +6,8 @@ import androidx.fragment.app.FragmentPagerAdapter
 
 class HomeFragmentAdapter(fragmentManager: FragmentManager, behavior: Int, private val fragments : List<Fragment>)
     : FragmentPagerAdapter(fragmentManager, behavior) {
-    override fun getCount(): Int {
-        return fragments.size
-    }
 
-    override fun getItem(position: Int): Fragment {
-        return fragments[position]
-    }
+    override fun getCount() = fragments.size
+
+    override fun getItem(position: Int) = fragments[position]
 }

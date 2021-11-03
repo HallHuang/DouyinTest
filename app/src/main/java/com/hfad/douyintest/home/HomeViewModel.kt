@@ -17,4 +17,15 @@ class HomeViewModel: ViewModel() {
         MutableLiveData<VideoBean.UserBean>()
     }
 
+    val isVideoFragment by lazy {
+        MutableLiveData<Boolean>().apply {
+            this.value = true
+        }
+    }
+
+    val curVideoPos by lazy {
+        MutableLiveData<Int>().apply {
+            this.value = 0
+        }
+    }
 }

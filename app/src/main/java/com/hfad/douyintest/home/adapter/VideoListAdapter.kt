@@ -1,7 +1,7 @@
 package com.hfad.douyintest.home.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,27 +12,24 @@ import com.hfad.douyintest.R
 import com.hfad.douyintest.databinding.ItemViewLocalVideoBinding
 import com.hfad.douyintest.home.beans.VideoBean
 
-class VideoListAdapter(val mContext: Context, val mDatas: ArrayList<VideoBean> ): RecyclerView.Adapter<VideoListAdapter.ItemVideoViewHolder>() {
+class VideoListAdapter(private val mContext: Context, private val mDatas: ArrayList<VideoBean> ): RecyclerView.Adapter<VideoListAdapter.ItemVideoViewHolder>() {
 
     private lateinit var onVideoItemClickListener: OnVideoItemClickListener
 
-    class ItemVideoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ItemVideoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         var ivCover:ImageView
         var ivHead: ImageView
-        var tvIcon: TextView
         var tvDistance: TextView
         var tvContent: TextView
 
-        init {
+        init{
             val binding = ItemViewLocalVideoBinding.bind(itemView)
             ivCover = binding.ivCover
             ivHead = binding.ivHead
-            tvIcon = binding.iconLocation
             tvDistance = binding.tvDistance
             tvContent = binding.tvContent
         }
-
     }
 
     override fun onCreateViewHolder(
@@ -43,15 +40,16 @@ class VideoListAdapter(val mContext: Context, val mDatas: ArrayList<VideoBean> )
         return ItemVideoViewHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ItemVideoViewHolder, position: Int) {
         val videoBean = mDatas[position]
         holder.ivCover.setImageResource(videoBean.coverRes)
-        holder.tvDistance.setText(""+videoBean.distance + "km")
+        holder.tvDistance.text = ""+videoBean.distance + "km"
         holder.ivHead.setImageResource(videoBean.userBean.head)
-        holder.tvContent.setText(videoBean.content)
+        holder.tvContent.text = videoBean.content
 
         holder.itemView.setOnClickListener {
-            onVideoItemClickListener.OnVideoItemClick(position)
+            onVideoItemClickListener.onVideoItemClick(position)
         }
     }
 
@@ -64,7 +62,7 @@ class VideoListAdapter(val mContext: Context, val mDatas: ArrayList<VideoBean> )
     }
 
     interface OnVideoItemClickListener{
-        fun OnVideoItemClick(position: Int)
+        fun onVideoItemClick(position: Int)
     }
 }
 

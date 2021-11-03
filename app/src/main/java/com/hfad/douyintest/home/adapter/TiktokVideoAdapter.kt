@@ -11,6 +11,7 @@ import com.hfad.douyintest.R
 import com.hfad.douyintest.databinding.ItemTiktokViewBinding
 import com.hfad.douyintest.home.adapter.TiktokVideoAdapter.*
 import com.hfad.douyintest.home.beans.VideoBean
+import com.hfad.douyintest.home.view.FullScreenVideoView
 import com.hfad.douyintest.home.view.InteractView
 import com.hfad.douyintest.home.view.PauseAndLikeView
 
@@ -18,6 +19,7 @@ class TiktokVideoAdapter(val context: Context, val datas: List<VideoBean>): Recy
 
     class TiktokViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
+        var videoView: FullScreenVideoView
         var viewInteract: InteractView
         var viewPauseLike: PauseAndLikeView
         var rlContainer: RelativeLayout
@@ -31,6 +33,7 @@ class TiktokVideoAdapter(val context: Context, val datas: List<VideoBean>): Recy
             rlContainer = binding.rlContainer
             viewPauseLike = binding.viewPauseLike
             viewInteract = binding.viewInteract
+            videoView = binding.videoView
         }
     }
 

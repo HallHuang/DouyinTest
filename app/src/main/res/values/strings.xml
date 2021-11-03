@@ -38,4 +38,18 @@
     <string name="user_test">忠实用户A-Bill</string>
     <string name="attention">关注</string>
     <string name="search_hint">SearchActivity</string>
+    <string name="home_title">首页</string>
+    <string name="friend_title">朋友</string>
+    <string name="mess_title">消息</string>
+    <string name="me_title">我</string>
+    <string name="share_icon">share_icon</string>
+    <string name="advice_start">仅供测试学习   --黄浩</string>
+    <string name="soccer_today">\@今日足球</string>
+    <string name="content_test">2018世界杯法国夺冠 #俄罗斯世界杯 @妞妞 https://www.baidu.com</string>
+    <string name="subcontent_test">法国 4：2 克罗地亚，法国时隔20年再举大力神杯</string>
+    <string name="iv_focus">iv_focus</string>
+    <string name="iv_record">iv_record</string>
+    <string name="search_content">Search Content</string>
+    <string name="video_list_toolbar">VideoList</string>
+    <string name="video_play_hint">VideoPlay</string>
 </resources>

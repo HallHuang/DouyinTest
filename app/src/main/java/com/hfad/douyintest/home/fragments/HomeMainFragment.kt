@@ -1,30 +1,24 @@
 package com.hfad.douyintest.home.fragments
 
-import android.graphics.Typeface
 import android.graphics.Typeface.*
-import android.os.Build
 import android.os.Bundle
-import android.provider.CalendarContract
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.TypefaceCompat
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hfad.douyintest.R
 import com.hfad.douyintest.databinding.FragmentHomeMainBinding
-import com.hfad.douyintest.home.adapter.HomeFragmentAdapter
 import com.hfad.douyintest.home.adapter.HomeFragmentStateAdapter
 
+/**
+ * 包含三个Fragment的ViewPager2+TabLayout组成顶部滑动导航布局,设置customView自定义tabItem的视图默认/切换后格式
+ */
 class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
 
     private lateinit var fragmentHomeMainBinding: FragmentHomeMainBinding
@@ -57,23 +51,23 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
         super.onViewCreated(view, savedInstanceState)
 
         vpHomeMain.offscreenPageLimit = fragments.size
-        vpHomeMain.adapter = HomeFragmentStateAdapter(this, fragments)
+        val homeFragmentStateAdapter = HomeFragmentStateAdapter(this, fragments)
+        vpHomeMain.adapter = homeFragmentStateAdapter
 
-        tabLayout.addOnTabSelectedListener(this)
+        tabLayout.addOnTabSelectedListener(this)  // 滑动/点击后进行格式切换
 
         TabLayoutMediator(tabLayout, vpHomeMain) { tab, position ->
+            //设置各项默认视图
             val customView = View.inflate(tabLayout.context, R.layout.custom_view_textview, null)
             val textView = customView.findViewById<TextView>(R.id.tv_custom)
             textView.text = tabTitles[position]
             textView.textSize = 17F
             textView.typeface = DEFAULT
             textView.setTextColor(ContextCompat.getColor(tabLayout.context, R.color.text_gray))
-            tab.customView = null
             tab.customView = customView
         }.attach()
 
-        tabLayout.getTabAt(2)?.select()
-
+        vpHomeMain.currentItem = 2
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -97,7 +91,7 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
     }
 
     //tabview视图格式切换
-    private fun setTabView(tab : TabLayout.Tab, isSelected : Boolean) {
+    private fun setTabView(tab: TabLayout.Tab, isSelected: Boolean) {
         val textView = tab.customView?.findViewById<TextView>(R.id.tv_custom)
         if (textView != null) {
             if (isSelected) {
@@ -108,7 +102,6 @@ class HomeMainFragment : Fragment(), TabLayout.OnTabSelectedListener {
                 textView.setTextColor(ContextCompat.getColor(tabLayout.context, R.color.text_gray))
             }
         }
-
     }
 
 }

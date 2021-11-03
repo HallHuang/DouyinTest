@@ -1,6 +1,7 @@
 # DouyinTest
 本人设计开发的用于学习交流的抖音基本布局和功能框架  
-<img src="https://i.loli.net/2021/11/03/PeX5djqriSmEpBV.jpg" width="200">
+<img src="http://m.qpic.cn/psc?/V5221UAJ45VcQO0F0NZY2GGZQG183Wwv/45NBuzDIW489QBoVep5mcYRBBJOQxEX0RjDT6glgqaXanK4wZB96n4uDG36N1KT5s47qbdw39WbA2IxC5RjcJ6e0rpZxJDHLM*mHuL75JE0!/b&bo=OAQkCQAAAAABFyE!&rf=viewer_4" width="200">
+
 
 ##1 编程语言:   
    Kotlin. 
@@ -15,7 +16,6 @@
    底部全局导航栏(“首页”、“朋友”、“分享”、“消息”、“我”: Fragment * 5)，本人主要实现了“首页”视频播放界面.   
                 “首页”界面：顶部滑动导航栏（“杭州”、“关注”、“推荐”: Fragment * 3). 
                 
-##5 运行效果
               
         
                 

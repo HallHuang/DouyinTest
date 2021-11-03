@@ -1,6 +1,6 @@
 # DouyinTest
 本人设计开发的用于学习交流的抖音基本布局和功能框架  
-![tag11.jpg](https://i.loli.net/2021/11/03/PeX5djqriSmEpBV.jpg)
+<img src="https://i.loli.net/2021/11/03/PeX5djqriSmEpBV.jpg" width="200">
 
 ##1 编程语言:   
    Kotlin. 

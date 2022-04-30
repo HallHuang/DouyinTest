@@ -11,7 +11,8 @@
 
 ## 3 架构模式:   
    MVVM.  
-   1.由于没有网络后台数据，本应用没有添加基类(BaseActivity/BaseFragment/BaseViewModel)进行功能类继承式创建；/n
+   1.由于没有网络后台数据，本应用没有添加基类(BaseActivity/BaseFragment/BaseViewModel)进行功能类继承式创建；
+   
    2.由于客户项目功能较少，应要求不进行组件化/模块化开发
 
 ## 4 基本布局框架:   

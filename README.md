@@ -1,5 +1,5 @@
 # BasicDouyinTest
-本人设计开发的用于学习交流的抖音基本布局和基本视频功能实现，项目来源于个人接的私活，本人负责关键功能的原型实现，可以通过AndroidStudio在模拟器或手机上直接运行.   
+本人设计开发的用于学习交流的抖音基本布局和基本视频功能实现，可以通过AndroidStudio在模拟器或手机上直接运行.   
 <img src="http://m.qpic.cn/psc?/V5221UAJ45VcQO0F0NZY2GGZQG183Wwv/45NBuzDIW489QBoVep5mcYRBBJOQxEX0RjDT6glgqaXanK4wZB96n4uDG36N1KT5s47qbdw39WbA2IxC5RjcJ6e0rpZxJDHLM*mHuL75JE0!/b&bo=OAQkCQAAAAABFyE!&rf=viewer_4" width="200">
 
 
